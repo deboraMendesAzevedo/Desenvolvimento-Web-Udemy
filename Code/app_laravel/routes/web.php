@@ -24,10 +24,20 @@ Route::get('/sobreNos', [\App\Http\Controllers\SobreNosController::class,'sobreN
 
 Route::get('/contato', [\App\Http\Controllers\ContatoController::class,'contato'])->name('site.contato');
 
+Route::get('/teste', [\App\Http\Controllers\TesteController::class,'teste'])->name('site.teste');
+
 Route::get('/login', function(){
     return 'Login';
 })->name('site.login');
 
+
+Route::prefix('/app')->group(function(){
+    Route::get('/clientes', function(){return 'Clientes';})->name('app.clientes');
+    Route::get('/produtos', function(){return 'produtos';})->name('app.produtos');
+    Route::get('/fornecedores','FornecedorController@index')->name('app.fornecedores');
+});
+
+/*
 Route::prefix('/app')->group(function(){
     
     Route::get('/clientes', function(){
@@ -40,6 +50,7 @@ Route::prefix('/app')->group(function(){
         return 'Produtos';
     })->name('app.produtos');
 });
+*/
 
 Route::get('/teste', 'TesteController@teste')->name('teste');
 

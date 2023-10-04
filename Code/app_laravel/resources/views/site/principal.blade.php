@@ -1,4 +1,4 @@
-<h3>Principal (view)</h3>
+<h3>Sobre Nós (view)</h3>
 <ul>
     <li>
         <a href="{{ route('site.index')}}">Principal</a>
@@ -8,5 +8,8 @@
     </li>
     <li>
         <a href="{{route('site.contato')}}">Contato</a>
+    </li>
+    <li>
+        <a href="{{route('site.teste')}}">Teste</a>
     </li>
 </ul>
