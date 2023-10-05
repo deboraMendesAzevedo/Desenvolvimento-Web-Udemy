@@ -14,8 +14,7 @@ echo 'Teste de texto'
 
 // Para comentar 1 linha
 
-/*
- para comentar varias linhas 
+/* para comentar varias linhas
 
 if(){
 
@@ -33,9 +32,6 @@ null
 false
 array()
 $var  o único que não tem como testar é a variável
-
-
-
 */
 
 
@@ -45,7 +41,7 @@ $var  o único que não tem como testar é a variável
  {{-- @dd($fornecedores) Para imprimir uma variável  usa @ddnome_variaavel--}}
 
 
- {{-- Retorno positivo da condição 
+ {{-- Retorno positivo da condição
 @if(count($fornecedores)> 0 && count($fornecedores) < 10)
     <h3>Existe alguns fornecedores</h3>
 @elseif (count($fornecedores) > 10)
@@ -54,9 +50,9 @@ $var  o único que não tem como testar é a variável
     <h3>Ainda não tem nada cadastrado</h3>
 @endif
 
-@unless () a forma falsa da condição 
-    
-@endunless para finalisa a condição 
+@unless () a forma falsa da condição
+
+@endunless para finalisa a condição
 
 --}}
 <br>
@@ -89,9 +85,9 @@ Status : {{ $fornecedores[0]['status'] }}
     Status : {{ $fornecedores[0]['status'] }}
     <br>
     @isset($fornecedores[0]['cnpj'])
-        CNPJ : {{ $fornecedores[0]['cnpj'] }}    
+        CNPJ : {{ $fornecedores[0]['cnpj'] }}
     @endisset
-        
+
 @endisset
 
 <br>
@@ -104,9 +100,9 @@ opção sem cnpj
     Status : {{ $fornecedores[1]['status'] }}
     <br>
     @isset($fornecedores[1]['cnpj'])
-        CNPJ : {{ $fornecedores[1]['cnpj'] }}    
+        CNPJ : {{ $fornecedores[1]['cnpj'] }}
     @endisset
-        
+
 @endisset
 
 @isset($fornecedores) {{-- Para verificar se a variavel existe --}}
@@ -116,24 +112,83 @@ opção sem cnpj
     Status : {{ $fornecedores[2]['status'] }}
     <br>
     @isset($fornecedores[2]['cnpj'])
-        CNPJ : {{ $fornecedores[2]['cnpj'] }} 
+        CNPJ : {{ $fornecedores[2]['cnpj'] }}
         @empty($fornecedores[2]['cnpj']) {{-- para mostrar quando o valor é vazio  --}}
             - Vazio
-            
-        @endempty   
+
+        @endempty
     @endisset
-        
+
 @endisset
-
-
+<br>
+teste quando o valor não for informado
+<br>
 @isset($fornecedores) {{-- Para verificar se a variavel existe --}}
     <br>
-    Fornecedor : {{ $fornecedores [1]['nome'] }}
+    Fornecedor : {{ $fornecedores [2]['nome'] }}
     <br>
-    Status : {{ $fornecedores[1]['status'] }}
+    Status : {{ $fornecedores[2]['status'] }}
     <br>
-    @isset($fornecedores[1]['cnpj'])
-        CNPJ : {{ $fornecedores[1]['cnpj'] ?? ''}}    {{-- ?? é para testar a variável de existe e se o valor não é null --}}
-    @endisset
-        
+    CNPJ : {{ $fornecedores[2]['cnpj'] ?? ''}}    {{-- ?? é para testar a variável de existe e se o valor não é null --}}
+    <br>
+    Telefone : {{ $fornecedores[2]['ddd'] ?? ''}} {{ $fornecedores[2]['telefone'] ?? ''}}
+    <br>
+    @switch($fornecedores[2]['ddd'])
+        @case('11')
+            São Paulo = SP
+            @break
+        @case('85')
+            Fortaleza - CE
+            @break
+        @case('32')
+            Juiz de Fora - MG
+        @break
+        @default
+            Estado não informado
+
+    @endswitch
+    <br>
+
+@endisset
+
+<br>
+usando o for
+<br>
+
+@for($i = 0; $i < 10; $i++)
+    {{ $i }} <br>
+@endfor
+<br>
+<br>
+<hr>
+@isset($fornecedores) {{-- Para verificar se a variavel existe --}}
+    <br>
+    @for ($i = 0; isset($fornecedores[$i]); $i++)
+
+    Fornecedor : {{ $fornecedores [$i]['nome'] }}
+    <br>
+    Status : {{ $fornecedores[$i]['status'] }}
+    <br>
+    CNPJ : {{ $fornecedores[$i]['cnpj'] ?? ''}}    {{-- ?? é para testar a variável de existe e se o valor não é null --}}
+    <br>
+    Telefone : {{ $fornecedores[$i]['ddd'] ?? ''}} {{ $fornecedores[$i]['telefone'] ?? ''}}
+    <br>
+    @switch($fornecedores[$i]['ddd'])
+        @case('11')
+            São Paulo = SP
+            @break
+        @case('85')
+            Fortaleza - CE
+            @break
+        @case('32')
+            Juiz de Fora - MG
+        @break
+        @default
+            Estado não informado
+
+    @endswitch
+    <br>
+    <hr>
+    @endfor
+
 @endisset
