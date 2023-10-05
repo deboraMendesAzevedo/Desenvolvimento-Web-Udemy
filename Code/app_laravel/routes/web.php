@@ -38,6 +38,27 @@ Route::get('/produtos', function(){
 
 });
 
+
+Route::get('/rota1', function(){
+    echo 'Rota 1';
+})->name('site.rota1');
+
+Route::get('/rota2', function(){
+    return redirect()->route('site.rota1');
+})->name('site.rota2');
+
+Route::fallback(function(){
+    echo"a página não existe <a href=".route('site.index').">clique aqui </a>" ;
+});
+
+
+
+/*
+Route::redirect('/rota2',"/rota1" ); // para fazer o redirecionamento  de rotas
+*/
+
+
+
 /*
 Para fazer com que  só seja aceito letras e números
 Route::get('/contato/{nome}/{categoria_id}', function(
