@@ -38,7 +38,7 @@ Route::get('/produtos', function(){
 
 });
 
-
+// para ver como uma rota substitui a outra
 Route::get('/rota1', function(){
     echo 'Rota 1';
 })->name('site.rota1');
@@ -47,6 +47,10 @@ Route::get('/rota2', function(){
     return redirect()->route('site.rota1');
 })->name('site.rota2');
 
+Route::get('/teste/{p1}/{p2}', 'TesteController@teste')->name('teste');
+
+
+// para direcionar a pagina para a pagina principal quando a página não existe 
 Route::fallback(function(){
     echo"a página não existe <a href=".route('site.index').">clique aqui </a>" ;
 });
