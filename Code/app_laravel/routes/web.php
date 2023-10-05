@@ -17,6 +17,10 @@ Route::get('/contato',[\App\Http\Controllers\ContatoController::class,'contato']
 
 Route::get('/sobre-nos',[\App\Http\Controllers\SobreNosController::class,'sobreNos'])->name('site.sobrenos');
 
+
+// teste de soma de dados
+Route::get('/teste/{p1}/{p2}', [\App\Http\Controllers\TesteController::class,'teste'])->name('teste');
+
 Route::get('/login', function(){
     return 'Login';
 })->name('site.login');
@@ -28,9 +32,7 @@ Route::get('/clientes', function(){
     return 'Clientes';
 })->name('app.clientes');
 
-Route::get('/fornecedores', function(){
-    return 'Fornecedores';
-})->name('app.fornecedores');
+Route::get('/fornecedores', [\App\Http\Controllers\FornecedorController::class,'index'])->name('app.fornecedores');
 
 Route::get('/produtos', function(){
     return 'Produtos';
@@ -47,7 +49,7 @@ Route::get('/rota2', function(){
     return redirect()->route('site.rota1');
 })->name('site.rota2');
 
-Route::get('/teste/{p1}/{p2}', 'TesteController@teste')->name('teste');
+
 
 
 // para direcionar a pagina para a pagina principal quando a página não existe 
