@@ -230,3 +230,20 @@ teste quando o valor não for informado
 
 @endisset
 
+
+
+@isset($fornecedores) {{-- Para verificar se a variavel existe --}}
+    <br>
+    Fornecedor : @{{ $fornecedores [2]['nome'] }}{{-- Quando quiser que o nome seja impresso da forma que está escrito basta colocar o @  antes --}}
+    <br>
+    Status : @{{ $fornecedores[2]['status'] }}
+    <br>
+    @isset($fornecedores[2]['cnpj'])
+        CNPJ : @{{ $fornecedores[2]['cnpj'] }}
+        @empty($fornecedores[2]['cnpj']) {{-- para mostrar quando o valor é vazio  --}}
+            - Vazio
+
+        @endempty
+    @endisset
+
+@endisset
