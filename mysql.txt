@@ -1,6 +1,25 @@
 para criar o bando de dados
 create database nome_do_banco_de_dados
-
+---------------------------------------------------
 para usar o banco de dados
 use nome_do_banco_de_dados
+---------------------------------------------------
+Incluir nova coluna dentro de um banco de dados que já existe 
 
+alter table nome_tabela não usar com migração pode dar erro
+---------------------------------------------------
+Para verificar os dados de uma tabela
+
+describe nome_tabela;
+---------------------------------------------------
+
+---------------------------------------------------
+
+
+---------------------------------------------------
+
+
+---------------------------------------------------
+
+
+---------------------------------------------------
