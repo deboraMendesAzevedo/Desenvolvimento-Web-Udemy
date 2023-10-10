@@ -1,0 +1,6 @@
+para criar o bando de dados
+create database nome_do_banco_de_dados
+
+para usar o banco de dados
+use nome_do_banco_de_dados
+
