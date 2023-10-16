@@ -28,11 +28,27 @@ $table->unique('produtos_id');
 Para Deletar a tabela
 drop table nome_tabela;
 ---------------------------------------------------
+consulta usando where e and
 
+select * from site_contatos where nome <> 'Fernando' and motivo_contato in (1,2) and created_at between'2023-10-11 00:00:00' and '2023-10-11 23:59:59';
 ---------------------------------------------------
-
+consulta usando where e or
+select 
+*
+from
+	site_contatos 
+where 
+	nome <> 'Fernando' 
+    or motivo_contato in (1,2) 
+    or created_at between'2023-10-11 00:00:00' and '2023-10-11 23:59:59';
 ---------------------------------------------------
-
+Para não retornar nenhum campo vazio
+  select
+    *
+    from
+		site_contatos
+    where
+		updated_at is not null;
 ---------------------------------------------------
 ---------------------------------------------------
 
