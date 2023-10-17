@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Fornecedor;
+use Illuminate\Support\Facades\DB;
 
 class FornecedorSeeder extends Seeder
 {
@@ -15,26 +15,26 @@ class FornecedorSeeder extends Seeder
     {
         // instanciar o objeto
         $fornecedor = new Fornecedor();
-        $fornecedor->nome = Str('Fornecedor100');
-        $fornecedor->site = Str('fornecedor100.com.br');
-        $fornecedor->uf = Str('CE');
-        $fornecedor->email = Str('contato@fornecedor100.com.br');
+        $fornecedor->nome = 'Fornecedor100';
+        $fornecedor->site = 'fornecedor100.com.br';
+        $fornecedor->uf = 'CE';
+        $fornecedor->email = 'contato@fornecedor100.com.br';
         $fornecedor->save();
 
         // Usando o create (atenção para o atributo fillable da classe se não tiver precisa incluir)
         Fornecedor::create([
-            'nome'=> Str('Fornecedor200'),
-            'site'=> Str('fornecedor200.com.br'),
-            'uf'=> Str('RS'),
-            'email'=> Str('contato@fornecedor200.com.br'),
+            'nome'=> 'Fornecedor200',
+            'site'=> 'fornecedor200.com.br',
+            'uf'=> 'RS',
+            'email'=> 'contato@fornecedor200.com.br'
         ]);
         //insert por um array
-        DB:table('fornecedores')->insert([
+        DB::table('fornecedores')->insert([
 
-            'nome'=> Str('Fornecedor200'),
-            'site'=>  Str('fornecedor300.com.br'),
-            'uf'=> Str('SP'),
-            'email'=> Str('contato@fornecedor300.com.br'),
+            'nome'=> 'Fornecedor200',
+            'site'=>  'fornecedor300.com.br',
+            'uf'=> 'SP',
+            'email'=> 'contato@fornecedor300.com.br'
 
         ]);
 
