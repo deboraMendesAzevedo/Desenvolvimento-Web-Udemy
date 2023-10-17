@@ -50,6 +50,13 @@ Para não retornar nenhum campo vazio
     where
 		updated_at is not null;
 ---------------------------------------------------
+usando o where com or e and
+select
+	*
+From
+	site_contatos
+where
+	(nome = 'Débora' or nome = 'Ana') and (motivo_contato in (1,2) or id between 4 and 6);
 ---------------------------------------------------
 
 ---------------------------------------------------
