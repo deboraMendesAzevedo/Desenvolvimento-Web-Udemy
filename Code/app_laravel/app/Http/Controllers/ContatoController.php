@@ -48,6 +48,7 @@ class ContatoController extends Controller
         ]);
          SiteContato::create($request->all());
     }
+
 }
 
 
