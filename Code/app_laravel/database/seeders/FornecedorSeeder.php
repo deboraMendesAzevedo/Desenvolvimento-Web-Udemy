@@ -29,6 +29,7 @@ class FornecedorSeeder extends Seeder
             'email'=> 'contato@fornecedor200.com.br'
         ]);
         //insert por um array
+
         DB::table('fornecedores')->insert([
 
             'nome'=> 'Fornecedor200',
@@ -37,7 +38,7 @@ class FornecedorSeeder extends Seeder
             'email'=> 'contato@fornecedor300.com.br'
 
         ]);
-
+        
 
     }
 }

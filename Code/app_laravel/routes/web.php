@@ -18,7 +18,7 @@ Route::get('/request', function(){ // teste para começar novamente
 Route::get('/',[PrincipalController::class,'principal'])->name('site.index');
 
 Route::get('/contato',[ContatoController::class,'contato'])->name('site.contato');
-Route::post('/contato',[ContatoController::class,'contato'])->name('site.contato');
+Route::post('/contato',[ContatoController::class,'salvar'])->name('contato.salvar');
 
 Route::get('/sobre-nos',[SobreNosController::class,'sobreNos'])->name('site.sobrenos');
 
