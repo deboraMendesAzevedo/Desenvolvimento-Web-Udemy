@@ -3,8 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use \App\Models\MotivoContato;
-//class CreateMotivoContatoTable extends Migration
+
 return new class extends Migration
 {
     /**
@@ -12,18 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('motivo_contatos', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('motivo_contato',20);
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->rememberToken();
             $table->timestamps();
         });
-        /*
-
-        MotivoContato::create(['Dúvida']);
-        MotivoContato::create(['Elogio']);
-        MotivoContato::create(['Reclamação']);
-*/
-
     }
 
     /**
@@ -31,7 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('motivo_contatos');
-
+        Schema::dropIfExists('users');
     }
 };
