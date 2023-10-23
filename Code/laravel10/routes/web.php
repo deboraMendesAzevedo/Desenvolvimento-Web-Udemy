@@ -16,9 +16,31 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/suporte', [SupoteController::class, 'index'])->name('suportes.index');
+Route::get('/suporte', [SuporteController::class, 'site/admin/suporte/index']);
 
-Route::get('/contato', [SiteController::class, 'contato']);
+
+//Route::get('/contato', [SiteController::class, 'contato']);
+
+Route::get('/testeDebora', function () {
+    return view('debora/testedebora');
+});
+
+Route::get('/testeLucas', function () {
+    return view('lucas/testelucas');
+});
+
+Route::get('/produto', function () {
+    return view('produto/testeProduto');
+});
+
+Route::get('/sobre', function () {
+    return view('teste/sobre');
+});
+
+Route::get('/contato', function () {
+    return view('contato');
+});
+
 
 Route::get('/', function () {
     return view('welcome');
