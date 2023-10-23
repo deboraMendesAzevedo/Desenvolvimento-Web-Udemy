@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\site\SiteController;
+use App\Http\Controllers\Site\Site2Controller;
 
 use App\Http\Controllers\Admin\{SuporteController};
 use Illuminate\Support\Facades\Route;
@@ -16,13 +16,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/suporte', [SuporteController::class, 'site/admin/suporte/index']);
+//Route::get('/suporte', [SuporteController::class, 'site/admin/suporte/index']);
 
 
-//Route::get('/contato', [SiteController::class, 'contato']);
+Route::get('/testeSite', [Site2Controller::class, 'teste']);
+
+Route::get('/testedebora',[Site2Controller::class, 'site']);
 
 Route::get('/testeDebora', function () {
     return view('debora/testedebora');
+});
+
+Route::get('/testeLucas2', function () {
+    return view('lucas2/testelucas2');
 });
 
 Route::get('/testeLucas', function () {
