@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use \App\Models\SiteContato;
+use \App\Models\MotivoContato;
+
 
 class ContatoController extends Controller
 {
@@ -47,6 +49,14 @@ class ContatoController extends Controller
             'mensagem' => 'required|max:2000'
         ]);
          SiteContato::create($request->all());
+    }
+    public function contato(Request $request){
+        $motivo_contato =[
+            '1' => 'Dúvida',
+            '2' => 'Elogio',
+            '3' => 'Reclamação',
+        ];
+        return view('site.contato', ['titulo' => 'Contato (teste)'])
     }
 
 }

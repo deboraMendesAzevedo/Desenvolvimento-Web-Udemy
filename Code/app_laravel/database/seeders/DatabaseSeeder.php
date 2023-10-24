@@ -28,8 +28,8 @@ class DatabaseSeeder extends Seeder
         //$this->call([FornecedorSeeder::class]);
         //$this->call([SiteContatoSeeder::class]);
        // \App\Models\SiteContato::factory(100)->create();
-        //$this->call([MotivoContatoSeeder::class]);
-        $this->call([BookSeeder::class]);
+        $this->call([MotivoContatoSeeder::class]);
+
 
     }
 }
