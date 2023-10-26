@@ -37,7 +37,7 @@ Route::get('/clientes', function(){
     return 'Clientes';
 })->name('app.clientes');
 
-Route::get('/fornecedores', [\App\Http\Controllers\FornecedorController::class,'index'])->name('app.fornecedores');
+Route::get('/fornecedores', [FornecedorController::class,'index'])->name('app.fornecedores');
 
 Route::get('/produtos', function(){
     return 'Produtos';
