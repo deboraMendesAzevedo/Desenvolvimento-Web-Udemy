@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
-use App\Http\Model\LogAcesso;
+use App\Models\LogAcesso;
 
 class LogAcessoMiddleware
 {
@@ -16,9 +16,19 @@ class LogAcessoMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        //LogAcesso::create(['log'=> 'Ip teste']);
-        return Response('chegamos');
+       // dd($request);
+        $ip = $request->server->get('REMOTE_ADDR');
+        $rota = $request->getRequestUri();
+        LogAcesso::create(['log'=> "Ip $ip pela rota $rota"]);
+
+        //return Response('chegamos');
 
         //return $next($request);
+
+        $resposta = $next($request);
+
+        $resposta->setStatusCode(201, 'o status foi alterado !!!');
+
+        return $resposta;
     }
 }
