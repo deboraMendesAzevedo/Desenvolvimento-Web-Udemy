@@ -2,8 +2,8 @@
 <form action={{ route('site.contato') }} method="post">
     @csrf
     <input name="nome" value="{{ old('nome') }}" type="text" placeholder="Nome" class="{{ $classe }}">
-    @if ($errors->has('nome'))
-        {{ $errors->first('nome') }}
+    @if ($errors->has('nome')) {{-- metodo has é para verificar se tem dentro do objeto um erro--}}
+        {{ $errors->first('nome') }}{{-- metodo first é para pegar o primeiro erro--}}
     @endif
     <br>
     <input name="telefone" value="{{ old('telefone') }}" type="text" placeholder="Telefone" class="{{ $classe }}">

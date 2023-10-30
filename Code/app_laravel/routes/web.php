@@ -5,8 +5,10 @@ use App\Http\Controllers\FornecedorController;
 use App\Http\Controllers\PrincipalController;
 use App\Http\Controllers\SobreNosController;
 use App\Http\Controllers\TesteController;
+use App\Http\Middleware\LogAcessoMiddleware;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
 
 
 
@@ -15,7 +17,9 @@ Route::get('/request', function(){ // teste para começar novamente
     return 'x';
 });
 
-Route::get('/',[PrincipalController::class,'principal'])->name('site.index');
+Route::middleware(LogAcessoMiddleware::class)
+    ->get('/',[PrincipalController::class,'principal'])
+    ->name('site.index');
 
 Route::get('/contato',[ContatoController::class,'contato'])->name('site.contato');
 Route::post('/contato',[ContatoController::class,'salvar'])->name('contato.salvar');
