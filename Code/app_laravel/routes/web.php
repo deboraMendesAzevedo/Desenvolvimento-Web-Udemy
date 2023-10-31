@@ -28,13 +28,13 @@ Route::post('/contato',[ContatoController::class,'salvar'])->name('contato.salva
 
 Route::get('/sobre-nos',[SobreNosController::class,'sobreNos'])->name('site.sobrenos');
 
+Route::get('/login', [LoginController::class,'login'])->name('contato.login');
+
 
 // teste de soma de dados
 Route::get('/teste/{p1}/{p2}', [TesteController::class,'teste'])->name('teste');
 
-Route::get('/login', function(){
-    return 'Login';
-})->name('site.login');
+
 
 Route::middleware('autenticacao:padrao,visitante')
     ->prefix('/app')->group(function(){
