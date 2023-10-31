@@ -17,18 +17,22 @@ class LogAcessoMiddleware
     public function handle(Request $request, Closure $next): Response
     {
        // dd($request);
-        $ip = $request->server->get('REMOTE_ADDR');
-        $rota = $request->getRequestUri();
-        LogAcesso::create(['log'=> "Ip $ip pela rota $rota"]);
 
-        //return Response('chegamos');
+       $ip = $request->server->get('REMOTE_ADDR');
+       $rota = $request->getRequestUri();
 
-        //return $next($request);
+       LogAcesso::create(['log' => "IP $ip requisitou a rota $rota"]);
 
-        $resposta = $next($request);
 
-        $resposta->setStatusCode(201, 'o status foi alterado !!!');
+       // return $next($request);
 
-        return $resposta;
-    }
+       //return Response('chegamos');
+
+       $resposta = $next($request);
+
+       $resposta->setStatusCode(201, 'O status da resposta e o texto da resposta foram modificados!!!');
+
+       return $resposta;
+
+   }
 }

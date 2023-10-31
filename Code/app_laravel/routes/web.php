@@ -6,8 +6,10 @@ use App\Http\Controllers\PrincipalController;
 use App\Http\Controllers\SobreNosController;
 use App\Http\Controllers\TesteController;
 use App\Http\Middleware\LogAcessoMiddleware;
+use App\Http\Controllers\LoginController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
 
 
 
@@ -28,8 +30,12 @@ Route::post('/contato',[ContatoController::class,'salvar'])->name('contato.salva
 
 Route::get('/sobre-nos',[SobreNosController::class,'sobreNos'])->name('site.sobrenos');
 
-Route::get('/login', [LoginController::class,'login'])->name('contato.login');
-
+Route::get('/login', [LoginController::class, 'index'])
+    //->middleware('log.acesso')
+    ->name('site.login');
+Route::post('/login', [LoginController::class, 'autenticar'])
+//->middleware('log.acesso')
+->name('site.login');
 
 // teste de soma de dados
 Route::get('/teste/{p1}/{p2}', [TesteController::class,'teste'])->name('teste');
