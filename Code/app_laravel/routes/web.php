@@ -8,7 +8,6 @@ use App\Http\Controllers\TesteController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ProdutoController;
-
 use App\Http\Middleware\LogAcessoMiddleware;
 use App\Http\Controllers\LoginController;
 use Illuminate\Http\Request;
