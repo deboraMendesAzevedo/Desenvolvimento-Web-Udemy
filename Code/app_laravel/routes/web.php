@@ -5,6 +5,10 @@ use App\Http\Controllers\FornecedorController;
 use App\Http\Controllers\PrincipalController;
 use App\Http\Controllers\SobreNosController;
 use App\Http\Controllers\TesteController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\ProdutoController;
+
 use App\Http\Middleware\LogAcessoMiddleware;
 use App\Http\Controllers\LoginController;
 use Illuminate\Http\Request;
@@ -33,7 +37,7 @@ Route::get('/sobre-nos',[SobreNosController::class,'sobreNos'])->name('site.sobr
 Route::get('/login', [LoginController::class, 'index'])
     //->middleware('log.acesso')
     ->name('site.login');
-Route::post('/login', [LoginController::class, 'autenticar'])
+Route::post('/login/{erro?}', [LoginController::class, 'autenticar'])
 //->middleware('log.acesso')
 ->name('site.login');
 
@@ -46,15 +50,15 @@ Route::middleware('autenticacao:padrao,visitante')
     ->prefix('/app')->group(function(){
 
             //para fazer grupos
-        Route::get('/clientes', function(){
-                return 'Clientes';
-        })->name('app.clientes');
+        Route::get('/cliente', [ClienteController::class, 'index'])->name('app.cliente');
 
-        Route::get('/fornecedores', [FornecedorController::class,'index'])->name('app.fornecedores');
+        Route::get('/home', [HomeController::class, 'index'])->name('app.home');
 
-        Route::get('/produtos', function(){
-            return 'Produtos';
-        })->name('app.produtos');
+        Route::get('/sair', [LoginController::class, 'sair'])->name('app.sair');
+
+        Route::get('/fornecedor', [FornecedorController::class,'index'])->name('app.fornecedor');
+
+        Route::get('/produto', [ProdutoController::class,'index'])->name('app.produto');
 
 });
 
