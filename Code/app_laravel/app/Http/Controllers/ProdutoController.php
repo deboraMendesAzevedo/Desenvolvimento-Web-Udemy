@@ -59,9 +59,9 @@ class ProdutoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Produto $produto)
+    public function show(Request $request)
     {
-        //
+        echo 'teste';
     }
 
     /**
