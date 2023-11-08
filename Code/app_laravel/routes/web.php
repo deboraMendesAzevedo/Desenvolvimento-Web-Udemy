@@ -57,7 +57,12 @@ Route::middleware('autenticacao:padrao,visitante')
         Route::post('/fornecedor/adicionar', [FornecedorController::class,'adicionar'])->name('app.fornecedor.adicionar');
         Route::get('/fornecedor/editar/{id}/{msg?}', [FornecedorController::class, 'editar'])->name('app.fornecedor.editar');
         Route::get('/fornecedor/excluir', [FornecedorController::class, 'excluir'])->name('app.fornecedor.excluir');
-        Route::get('/produto', [ProdutoController::class,'index'])->name('app.produto');
+
+
+        // produtos
+       // Route::get('/produto', [ProdutoController::class,'index'])->name('app.produto');
+        //Route::get('/produto/create', [ProdutoController::class, 'create'])->name('app.produto.create');
+        Route::resource('produto', ProdutoController::class);
 
 });
 
