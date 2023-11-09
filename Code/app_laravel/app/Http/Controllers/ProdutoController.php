@@ -91,7 +91,7 @@ class ProdutoController extends Controller
      */
     public function destroy(Produto $produto)
     {
-        dd($produto);
-        //return redirect('produto.index');
+        $produto->delete();
+        return redirect()->route('produto.index');
     }
 }
