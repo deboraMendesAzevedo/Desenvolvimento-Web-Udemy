@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 
 class ProdutoController extends Controller
 {
+
+
     /**
      * Display a listing of the resource.
      */
@@ -59,9 +61,10 @@ class ProdutoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Request $request)
+    public function show(Produto $produto)
     {
-        echo 'teste';
+        return view('app.produto.show', ['produto' => $produto]);
+
     }
 
     /**
