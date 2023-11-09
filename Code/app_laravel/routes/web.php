@@ -10,6 +10,7 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ProdutoController;
 use App\Http\Middleware\LogAcessoMiddleware;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProdutoDetalheController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -63,6 +64,8 @@ Route::middleware('autenticacao:padrao,visitante')
        // Route::get('/produto', [ProdutoController::class,'index'])->name('app.produto');
         //Route::get('/produto/create', [ProdutoController::class, 'create'])->name('app.produto.create');
         Route::resource('produto', ProdutoController::class);
+
+        Route::resource('produto-detalhe', ProdutoDetalheController::class);
 
 });
 
