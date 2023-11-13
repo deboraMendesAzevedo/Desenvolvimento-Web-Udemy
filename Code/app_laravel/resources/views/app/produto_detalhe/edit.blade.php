@@ -10,7 +10,7 @@
             <p>Editar Detalhes do Produto</p>
         </div>
 
-        <div class="menu">
+        <div class="menu"> 
             <ul>
                 <li><a href="#">Voltar</a></li>
             </ul>
