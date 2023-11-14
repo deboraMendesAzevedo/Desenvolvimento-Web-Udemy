@@ -29,9 +29,7 @@
                             <th></th>
                             <th></th>
                         </tr>
-                    </thead>
 
-                    <tbody>
                         @foreach ($fornecedores as $fornecedor)
                             <tr>
                                 <td>{{ $fornecedor->nome }}</td>
@@ -41,6 +39,40 @@
                                 <td><a href="{{ route('app.fornecedor.excluir', $fornecedor->id) }}">Excluir</a></td>
                                 <td><a href="{{ route('app.fornecedor.editar', $fornecedor->id) }}">Editar</a></td>
                             </tr>
+                            <tr>
+                                <td class="6">
+                                    <p>Lista de produtos</p>
+                                    <table border="1" style="margin:20px">
+                                        <thead>
+
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Nome</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            @foreach ($fornecedor->produtos as $key => $produtos )
+
+
+                                            <tr>
+
+                                                <td>{{ $produto->id }}</td>
+                                                <td>{{ $produto->nome }}</td>
+                                            </tr>
+
+                                            @endforeach
+
+                                        </tbody>
+
+                                    </table>
+
+                                </td>
+
+                            </tr>
+                        </thead>
+
+                        <tbody>
                         @endforeach
                     </tbody>
                 </table>
