@@ -8,6 +8,7 @@ use App\Models\ProdutoDetalhe;
 use Illuminate\Http\Request;
 use App\Models\Item;
 use App\Models\ItemDetalhe;
+use App\Models\Fornecedor;
 
 class ProdutoController extends Controller
 {
