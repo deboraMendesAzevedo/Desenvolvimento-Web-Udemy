@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pedido;
 use Illuminate\Http\Request;
 
 class PedidoProdutoController extends Controller
@@ -11,15 +12,15 @@ class PedidoProdutoController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Pedido $pedido)
     {
-        //
+        return view('app.pedido_produto.create', ['pedido' => $pedido]);
     }
 
     /**
