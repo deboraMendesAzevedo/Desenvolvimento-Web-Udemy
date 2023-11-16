@@ -3,23 +3,26 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Cliente;
 
 class ClienteController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('app.cliente');
+        $clientes = Cliente::paginate(10);
+        return view('app.cliente.index', ['clientes' => $clientes, 'request' => $request->all() ]);
     }
 
     /**
      * Show the form for creating a new resource.
+     *
      */
     public function create()
     {
-        //
+        return view('app.cliente.create');
     }
 
     /**
@@ -27,7 +30,23 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $regras = [
+            'nome' => 'required|min:3|max:40'
+        ];
+
+        $feedback = [
+            'required' => 'O campo deve ser preencido',
+            'nome.min' => 'O campo deve ter no minimo 3 caracteres',
+            'nome.max' => 'O campo deve ter no maximo 40 caracteres',
+        ];
+
+        $request->validate($regras, $feedback);
+
+        $cliente = new Cliente();
+        $cliente->nome = $request->get('nome');
+        $cliente->save();
+
+        return redirect()->route('cliente.index');
     }
 
     /**

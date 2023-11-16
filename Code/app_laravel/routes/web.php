@@ -13,6 +13,7 @@ use App\Http\Controllers\PedidoProdutoController;
 use App\Http\Middleware\LogAcessoMiddleware;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProdutoDetalheController;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -50,7 +51,7 @@ Route::middleware('autenticacao:padrao,visitante')
     ->prefix('/app')->group(function(){
 
             //para fazer grupos
- 
+
         Route::get('/home', [HomeController::class, 'index'])->name('app.home');
         Route::get('/sair', [LoginController::class, 'sair'])->name('app.sair');
         Route::get('/fornecedor', [FornecedorController::class,'index'])->name('app.fornecedor');
@@ -69,7 +70,7 @@ Route::middleware('autenticacao:padrao,visitante')
 
         Route::resource('produto-detalhe', ProdutoDetalheController::class);
 
-        Route::resource('Cliente', ClienteController::class);
+        Route::resource('cliente', ClienteController::class);
 
         Route::resource('pedido', PedidoController::class);
 
