@@ -7,7 +7,7 @@
     <div class="conteudo-pagina">
 
         <div class="titulo-pagina-2">
-            <p>Listagem de Pedido</p>
+            <p>Listagem de Pedidos</p>
         </div>
 
         <div class="menu">
@@ -26,13 +26,14 @@
                             <th>Cliente</th>
                             <th></th>
                             <th></th>
+                            <th></th>
                         </tr>
                     </head>
 
                     <tbody>
                         @foreach($pedidos as $pedido)
                             <tr>
-                                <td>{{ $pedido->nome }}</td>
+                                <td>{{ $pedido->id }}</td>
                                 <td>{{ $pedido->cliente_id }}</td>
                                 <td><a href="{{ route('pedido.show', ['pedido' => $pedido->id ]) }}">Visualizar</a></td>
                                 <td>
@@ -43,7 +44,7 @@
                                         <a href="#" onclick="document.getElementById('form_{{$pedido->id}}').submit()">Excluir</a>
                                     </form>
                                 </td>
-                                <td><a href="{{ route('cliente.edit', ['pedido' => $pedido->id ]) }}">Editar</a></td>
+                                <td><a href="{{ route('pedido.edit', ['pedido' => $pedido->id ]) }}">Editar</a></td>
                             </tr>
                         @endforeach
                     </tbody>
