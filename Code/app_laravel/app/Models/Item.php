@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Pedido;
 
 class Item extends Model
 {
@@ -19,5 +20,9 @@ class Item extends Model
 
     public function fornecedor(){
         return $this->belongsTo('App\Models\Fornecedor');
+    }
+
+    public function pedidos(){
+        return $this->belongsToMany('App\Models\Pedido', 'pedidos_produtos', 'produto_id', 'pedido_id');
     }
 }
