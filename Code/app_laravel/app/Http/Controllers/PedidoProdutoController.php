@@ -38,6 +38,7 @@ class PedidoProdutoController extends Controller
      */
     public function store(Request $request, Pedido $pedido)
     {
+        
         $regras = [
             'produto_id' => 'exists:produtos,id'
         ];
