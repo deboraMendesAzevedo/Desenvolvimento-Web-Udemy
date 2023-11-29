@@ -21,13 +21,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Auth::routes(['verify' => true]);
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])
+->middleware('verified')
+->name('home');
+
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])
+->middleware('verified')
+->name('home');
 
 Route::resource('tarefa', 'App\Http\Controllers\TarefaController');
 
