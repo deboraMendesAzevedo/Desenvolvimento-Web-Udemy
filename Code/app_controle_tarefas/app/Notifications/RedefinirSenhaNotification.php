@@ -45,17 +45,24 @@ class RedefinirSenhaNotification extends Notification
     public function toMail($notifiable)
     {
         $url = 'http://localhost:8000/password/reset/'.$this->token.'?email='.$this->email;
+       
         $minutos = config('auth.passwords.'.config('auth.defaults.passwords').'.expire');
         $saudacao = 'Olá '.$this->name;
+        $despedida = 'Tchau';
+        $onde = 'Onde pgar os dados ResetPassword';
+        $como = 'Como chegou aqui para fazer essas alterações app>Notification>RedefinirNotification';
         
         return (new MailMessage)
             ->subject('Atualização de senha')
+            ->line($onde)
+            ->line($como)
             ->greeting($saudacao)
             ->line('Esqueceu a senha? Sem problemas, vamos resolver isso!!!')
             ->action('Clique aqui para modificar a senha', $url)
+            
             ->line('O link acima expira em '.$minutos.' minutos')
             ->line('Caso você não tenha requisitado a alteração de senha, então nenhuma ação é necessária.')
-            ->salutation('Até breve!');
+            ->salutation($despedida);
         }
 
     /**
