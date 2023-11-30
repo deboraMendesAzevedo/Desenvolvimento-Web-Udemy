@@ -16,7 +16,7 @@
                         </div>
                         <div class="mb-3">
                         <label class="form-label">Data limite conclusão</label>
-                        <input type="date" class="form-control" id="data_limite_conclusao">
+                        <input type="date" class="form-control" name="data_limite_conclusao">
                         </div>
 
                         <button type="submit" class="btn btn-primary">Cadastrar</button>

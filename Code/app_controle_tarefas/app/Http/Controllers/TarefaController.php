@@ -58,8 +58,7 @@ class TarefaController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
-       // Tarefa::create($request->all());
+       Tarefa::create($request->all());
     }
 
     /**
