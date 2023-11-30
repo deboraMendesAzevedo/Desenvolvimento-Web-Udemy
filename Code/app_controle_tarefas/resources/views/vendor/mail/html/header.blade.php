@@ -3,7 +3,7 @@
 <td class="header">
 <a href="{{ $url }}" style="display: inline-block;">
 @if (trim($slot) === 'Controle de Tarefa env e header.blade.php')
-<img src="http://localhost:8000/img/logo.png" class="logo" alt="teste Logo">
+<img src="http://localhost:8000/img/logo.png" class="logo" alt="Logo">
 @else
 {{ $slot }}
 @endif
