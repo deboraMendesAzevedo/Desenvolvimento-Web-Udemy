@@ -1,14 +1,12 @@
-<x-mail::message>
+@component('mail::message')
 # {{ $tarefa }}
 
 Data limite de conclusão: {{ $data_limite_conclusao }}
 
-<x-mail::button :url="''">
-Button Text
-</x-mail::button>
+@component('mail::button', ['url' => $url])
+Clique aqui para ver a tarefa
+@endcomponent
 
-Thanks,<br>
+Att,<br>
 {{ config('app.name') }}
-</x-mail::message>
-
-
+@endcomponent

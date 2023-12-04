@@ -5,12 +5,12 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('para alterar essa mensagem resources> views> auth> password> verify.blade.php') }}</div>
+                <div class="card-header">para alterar essa mensagem resources> views> auth> password> verify.blade.php</div>
 
                 <div class="card-body">
                     @if (session('resent'))
                         <div class="alert alert-success" role="alert">
-                            {{ __('Reenviamos um email com o link de validação') }}
+                            Reenviamos um email com o link de validação
                         </div>
                     @endif
 

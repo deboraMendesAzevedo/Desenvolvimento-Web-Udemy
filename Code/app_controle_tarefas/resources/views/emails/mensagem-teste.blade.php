@@ -1,16 +1,20 @@
-<x-mail::message>
+@component('mail::message')
 # Introdução
 
-Corpo do email
+O corpo da mensagem.
 
-<x-mail::button :url="''">
-texto do botão
-</x-mail::button>
+- Opção 1
+- Opção 2
+- Opção 3
 
-<x-mail::button :url="''">
-texto do botão 2
-</x-mail::button>
+@component('mail::button', ['url' => ''])
+Texto do botão 1
+@endcomponent
 
-Obrigada!,<br>
+@component('mail::button', ['url' => ''])
+Texto do botão 2
+@endcomponent
+
+Obrigado,<br>
 {{ config('app.name') }}
-</x-mail::message>
+@endcomponent
