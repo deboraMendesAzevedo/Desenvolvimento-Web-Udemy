@@ -7,6 +7,7 @@ use App\Mail\NovaTarefaMail;
 use App\Models\Tarefa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail as FacadesMail;
+use Barryvdh\DomPDF\PDF;
 
 class TarefaController extends Controller
 {
@@ -115,4 +116,12 @@ class TarefaController extends Controller
       return redirect()->route('tarefa.index');
 
     }
+
+    public function exportar(){
+        $pdf = PDF::loadView('tarefa.pdf', []);
+        return $pdf->download('lista_de_tarefa.pdf');
+    }
+
+
+
 }

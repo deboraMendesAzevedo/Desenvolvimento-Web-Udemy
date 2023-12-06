@@ -3,6 +3,7 @@
 use App\Mail\MensagemTesteMail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
+use Barryvdh\DomPDF\PDF;
 
 
 /*
@@ -28,6 +29,13 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])
 ->middleware('verified')
 ->name('home');
 */
+
+Route::get('/tarefa/exportar', 'App\Http\Controllers\TarefaController@exportar')
+->name('tarefa.exportar');
+
+
+
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])
