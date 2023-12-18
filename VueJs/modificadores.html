@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./vue.js"></script> 
+    
+    <!--<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>-->
+    <style>
+        .verde{
+            background-color: green;
+        }
+        .branco{
+            background-color: white;
+        }
+        .negrito{
+            font-weight: bold;
+        }
+        .azul{
+            background-color: blue;
+        }
+        .vermelho{
+            background-color: red;
+        }
+        .borda{
+            border:1px solid;
+        }
+        .div-principal{
+            width: 200px;
+            height: 200px;
+            border: 1px solid;
+        }
+        .div-comum{
+            width: 50px;
+            height: 50px;
+            display: inline-block;
+        }
+    </style>
+
+    <title>VueJS</title>
+
+</head>
+<body>
+    
+    <div id="app">
+        <a href="https://jorgesantana.net.br"
+        target="_blank"
+        @click.prevent="previnirComportamento()"
+        >Link</a>
+        <br>
+        Mensagem: {{ msg }}
+        <hr>
+        <button @click.once="executarUmaVez()">Botão</button>
+        <p>Clique: {{ clique }}</p>
+        <hr>
+        <button @click="executarVariasVezes()">Botão</button>
+        <p>Contar Cliques: {{ cliques }}</p>
+        <hr>
+        <form @submit="naoPrevinirUmaVez()" action="">
+            <button type="submit">Enviar</button>
+            <p> Formulário: {{ naoPreviniFormulario }} </p>
+        </form>
+        <hr>
+        <form @submit.prevent.once="previnirUmaVez()" action="">
+            <button type="submit">Enviar</button>
+            <p> Formulário: {{ formulario }} </p>
+        </form>
+        <hr>
+        <input type="text" @keyup="capturandoTecla1($event)">
+        <p>Teclas uma única tecla: {{ tecla1 }}</p>
+        <hr>
+        <input type="text" @keyup="capturandoTecla2($event)">
+        <p>Todas as teclas: {{ tecla2 }}</p>
+        <hr>
+        <input type="text" @keyup.Enter="capturandoTecla3($event)">
+        <p>Liberando apenas com a Tecla Enter: {{ tecla3 }}</p>
+        <hr>
+        <input type="text" @keyup.Shift.Enter="capturandoTecla4($event)">
+        <p>Com duas teclas associadas: {{ tecla4 }}</p>
+
+    </div>
+    
+    <script>
+
+        const vm = new Vue({
+
+            el:'#app',
+            data: {
+                msg:'',
+                clique: 0,
+                cliques: 0,
+                formulario:'',
+                naoPreviniFormulario:'',
+                tecla1:'',
+                tecla2:'',
+                tecla3:'',
+                tecla4:''
+
+            },
+            methods: { 
+                previnirComportamento (){
+                    this.msg = 'Comportanebto padrão '
+                },
+                executarUmaVez(){
+                    this.clique++
+                },
+                previnirUmaVez(){
+                    this.formulario = 'Previnindo o comportamento padrão'
+                },
+                naoPrevinirUmaVez(){
+                    this.naoPreviniFormulario = 'Não previni o comportamento padrão de apertar apenas uma vez'
+                },
+                capturandoTeclas(){
+                    this.teclas +=event.key
+                },
+                executarVariasVezes(){
+                    this.cliques++
+                },
+                capturandoTecla1(){
+                    this.tecla1 =event.key
+                },
+                capturandoTecla2(){
+                    this.tecla2 += event.key
+                },
+                capturandoTecla3(){
+                    this.tecla3 =event.key
+                },
+                capturandoTecla4(){
+                    this.tecla4 = 'TESTE OK COM FRASE'
+                }
+            }
+        })  
+    </script>  
+</body>
+</html>

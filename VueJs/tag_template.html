@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./vue.js"></script>
+    <title>Tag template</title>
+</head>
+<body>
+    <div id="app"> 
+        <div v-if="saudacoes"></div>
+            <h1>Boas-vindas</h1>
+            <p>Conteúdo da tag <strong>template</strong>  </p>
+        </div>
+        <hr>
+        <template v-if="saudacoes"></template>
+            <h1>Boas-vindas</h1>
+            <p>Conteúdo da tag <strong>template</strong>  </p>
+        </template>
+
+        <hr>
+
+        <div v-for="n in 10">
+            <p>2 x {{ n }} = {{ 2*n }}</p>
+        </div>
+        
+        <hr>
+
+        <template v-for="n in 10">
+            <p>2 x {{n}} = {{ 2*n }}</p>
+        </template>
+
+
+        <hr>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data:{
+                saudacoes: true,
+            },
+            methods:{}
+        });
+
+    </script>
+</body>
+</html>

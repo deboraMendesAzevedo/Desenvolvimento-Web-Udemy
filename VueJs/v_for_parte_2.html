@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./vue.js"></script>
+    <title>Vue parte 2 v-for</title> 
+</head>
+<body>
+    <div id="app">
+        <ol>
+            <li v-for="curso, chave in cursos">{{ chave }} - {{ curso }}</li>
+        </ol>
+        <ul>
+            <li v-for="curso, chave in cursos">{{ chave }} - {{ curso }}</li>
+        </ul>
+        <hr>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Curso</th>
+                    <th>Descrição</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="curso, chave in cursos2">
+                    <td>{{ chave }}</td>
+                    <td>{{ curso.titulo }}</td>
+                    <td>{{ curso.descricao }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <hr>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Curso</th>
+                    <th>Descrição</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="({titulo, descricao }, chave) in cursos2">
+                    <td>{{ chave }}</td>
+                    <td>{{ titulo }}</td>
+                    <td>{{ descricao }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <hr>
+    </div>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data:{
+                cursos: ['Laravel', 'Web', 'PHP', 'HTML', 'Banco de Dados'],
+                cursos2 :{
+                    1000: {
+                        titulo: 'Laravel',
+                        descricao: 'Curso completo em Laravel'
+                    },
+                    1001: {
+                        titulo: 'Web',
+                        descricao: 'Curso completo em Web'
+                    }
+                }
+            },
+            methods:{}
+        });
+    </script>
+    
+</body>
+</html>

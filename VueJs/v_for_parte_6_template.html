@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./vue.js"></script>
+    <title>Vue tag template </title>
+</head>
+<body>
+    <div id="app">
+        <h3>Com a tag div</h3>
+        <div v-if="saudacao">
+            <h1>Boas-vindas</h1>
+        </div>
+        <hr>
+        <div v-if="saudacao2">
+            <h1>Boas-vindas falso</h1>
+        </div>
+        <hr>
+        <h3>Com a tag template </h3>
+        <template v-if="saudacao">
+            <h1>Boas-vindas</h1>
+        </template>
+        <hr>
+        <tem0plate v-if="saudacao2">
+            <h1>Boas-vindas falso </h1>
+        </tem0plate>
+        <hr>
+        <h3>Usando Div</h3>
+        <div v-for="n in 10">
+            <p>2 X {{ n }} = {{ 2 * n }}</p>
+        </div>
+        <h3>Usando template</h3>
+        <template v-for="n in 10">
+            <p>2 X {{ n }} = {{ 2 * n }}</p>
+        </template>
+    </div>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data:{ 
+                saudacao: true,
+                saudacao2: false
+            },
+            methods:{}
+
+        });
+    </script>
+    
+</body>
+</html>

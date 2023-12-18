@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./vue.js"></script> 
+    
+    <!--<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>-->
+
+    <title>VueJS</title>
+
+</head>
+<body>
+    
+    <div id="app">
+        {{ mensagem }} <br>
+        Valor : {{ valorTotal }} <br>
+        Logado : {{ logado }} <br>
+        Hobbies : {{ hobbies[1] }} <br>
+        Perfil : {{ perfil.nome }}, {{ perfil.site }}
+       
+
+
+    </div>
+<script>
+
+    option = {
+        el: '#app', // # para passar por id ou . para passar por class
+        data: {
+                mensagem : 'Primeiro template controlado pelo Vue',
+                valorTotal : 142.63,
+                logado : false,
+                hobbies : [
+                    'Dormir',
+                    'Passear',
+                    'Comer'
+                ],
+                perfil : {
+                    nome: 'Débora Mendes',
+                    site : 'debora.com.br',
+                    curso : [
+                        {
+                        nome: 'Laravel',
+                        cargaHoraria: '50 horas'
+                        },
+                        {
+                            nome: 'HTML',
+                            cargaHoraria: '10 horas'
+                        },
+                        {
+                            nome: 'Banco de Dados',
+                            cargaHoraria : '60 horas'
+                        }
+                    ]
+                }
+
+        }
+    }
+   const vm =  new Vue(option) // vm = ViewModel
+
+</script>  
+</body>
+</html>

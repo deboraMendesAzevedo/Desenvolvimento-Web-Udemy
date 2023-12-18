@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./vue.js"></script> 
+    
+    <!--<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>-->
+
+    <title>VueJS</title>
+
+</head>
+<body>
+    
+    <div id="app">
+        Função de somar: {{ somar() }} <br>
+        Função de subtrair: {{ subtrair() }} <br>
+        Função de multiplicar: {{ multiplicar() }} <br>
+        Função de dividir: {{ dividir() }} <br>
+     
+
+
+    </div>
+<script>
+
+    const vm = new Vue({
+
+            el: '#app', // # para passar por id ou . para passar por class
+            data:{
+                n1: 10,
+                n2: 5
+            },
+            methods : {
+                somar: function somar(){ // function forma convencional
+                    return this.n1 + this.n2;
+                },
+                subtrair: function(){ // function anônima
+                    return this.n1 - this.n2;
+                },
+                multiplicar: () =>{ // arrow function
+                    return this.n1 * this.n2; // não da certo para está forma
+                },
+                dividir(){ // forma simplificada com chave e valor 
+                    return this.n1 / this.n2; 
+                }
+            }
+                
+    })
+
+</script>  
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./vue.js"></script>
+    <title>Diretiva V-Model</title>
+</head>
+<body>
+    <div id="app">
+        {{ paciente }}
+        <br>
+        <input type="text" v-bind:value="paciente" v-on:keyup="setPaciente($event)">
+        
+        <br>
+        
+        <input type="radio" value="Feminino" v-model="sexo" name="sexo"> Feminino
+        <input type="radio" value="Masculino" v-model="sexo" name="sexo">Masculino
+        <br>
+        <select v-model="plano" name="plano" id="plano">
+            <option value="" disable>Selecione um plano </option>
+            <option value="1">Básico</option>
+            <option value="2">Básico 2</option>
+            <option value="3">Master</option>
+        </select>
+        <br>
+        Doenças pré-existentes :
+        <br>
+        <input type="checkbox" value="100" v-model="doencas">Asma
+        <input type="checkbox" value="101" v-model="doencas">Diabetes
+        <input type="checkbox" value="102" v-model="doencas">Rinite
+        <br>
+        <textarea name="diagnostico" id="diagnostico" cols="30" rows="10" v-model="diagnostico" v-on:keyup="diagnosticoFinal($event)"></textarea>
+        <hr>
+
+        <br>
+        Nome: {{ paciente }} <br>
+        Sexo : {{ sexo }} <br>
+        Plano: {{ plano }} <br>
+        Doença pré-existentes: {{ doencas }} <br>
+        Diagnostico: {{ diagnostico }}
+        <br>
+        
+
+    </div>
+    <script>
+        const vm = new Vue({
+
+            el: '#app',
+            data:{
+                paciente : '',
+                sexo: '',
+                plano: '',
+                doencas:[],
+                diagnostico:''
+            },
+            methods:{
+                setPaciente(e){
+                    this.paciente = e.target.value
+                },
+                diagnosticoFinal(e){
+                    this.diagnostico = e.target.value
+                }
+            },
+            computed:{}
+
+        });
+    </script>
+    
+</body>
+</html>

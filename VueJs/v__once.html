@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./vue.js"></script>
+    <title>Vue once</title>
+    
+</head>
+<body>
+    <div id="app">
+        <p v-once>Saldo Inicial: {{ saldo }}</p>
+        <p>Saldo Final: {{ saldo }}</p><br>
+        <input type="text" id="valor"> <br>
+        <button @click="creditar()">Creditar</button>
+        <button @click="debitar()">Debitar</button>
+
+    </div>
+
+    <script>
+
+        const vm = new Vue({
+        el: '#app',
+        data: {
+            saldo: 1100
+        },
+        methods: {
+            creditar(){
+                this.saldo += parseFloat(valor.value)
+            },
+            debitar(){
+                this.saldo -= parseFloat(valor.value)
+            }
+        }
+        })
+
+    </script>
+    
+</body>
+</html>

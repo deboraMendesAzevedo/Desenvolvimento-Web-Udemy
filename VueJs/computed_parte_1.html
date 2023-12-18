@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./vue.js"></script>
+    <title>Document</title>
+    <style>      
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h4>Adicionar pacientes</h4>
+        <span>Nome: </span>
+        <input type="text" id="inputNome" required><br>
+        <span>Idade: </span>
+        <input type="text" id="inputIdade" required><br>
+        <span>Plano: </span>
+        <input type="text" id="inputPlano" required><br>
+        <button @click="adicionarPaciente()">Incluir</button>
+        <hr>
+        <div v-if="pacientes.length > 0 " >
+            <h4>Último paciente cadastrado</h4>
+            <p >
+                Paciente {{ pacientes[pacientes.length - 1].nome }},
+                idade {{ pacientes[pacientes.length - 1].idade }},
+                plano {{ pacientes[pacientes.length - 1].plano }}
+            </p>
+            <hr>
+            <h4>Pacientes do plano Ouro</h4>
+            <p v-for="p in pacientes">{{ p.plano == 'Ouro' ? p.nome : '' }}</p>
+            <hr>
+
+            <h4>Pacientes cadastrados</h4>
+            <p v-for="p in pacientes">{{p.nome}}</p>
+        </div>
+    </div>
+
+    <script>
+
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                pacientes: []
+            },
+            methods: {
+                adicionarPaciente() {
+                    this.pacientes.push({
+                        nome: inputNome.value,
+                        idade: inputIdade.value,
+                        plano: inputPlano.value
+                    })
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>

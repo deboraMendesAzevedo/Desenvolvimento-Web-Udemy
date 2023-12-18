@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./vue.js"></script> 
+    
+    <!--<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>-->
+    <style>
+        .verde{
+            color: green;
+        }
+        .negrito{
+            font-weight: bold;
+        }
+        .azul{
+            background-color: blue;
+        }
+    </style>
+
+    <title>VueJS</title>
+
+</head>
+<body>
+    <div id="app"> 
+        <input type="text" @keyup="imprimirTexto()">
+        <button @click="mensagemAlert()">Botão</button>
+
+    </div>
+    
+    <script>
+
+        const vm = new Vue({
+
+            el:'#app',
+            data: {},
+            methods: {
+                imprimirTexto(){
+                    console.log('Teste')
+                },
+                mensagemAlert(){
+                    alert('Mensagem de alerta')
+                }
+            }
+        })  
+    </script>  
+</body>
+</html>

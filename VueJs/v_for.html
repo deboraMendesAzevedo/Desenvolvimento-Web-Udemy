@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./vue.js"></script>
+    <title>Vue For</title>
+</head>
+<body>
+    <div id="app">
+
+        <ul>
+            <li v-for="curso in cursos">{{ curso }}</li>
+        </ul>
+
+        <ul>
+            <li v-for="curso in cursos" v-text="curso"></li>
+        </ul>
+
+    </div>
+    <script>
+
+        const vm = new Vue({
+            el: '#app',
+            data:{
+                cursos: ['Laravel', 'Angular', 'PHP', 'HTML']
+            },
+            methods: {}
+
+        })
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./vue.js"></script>
+    <title>Vue v-for Key</title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="p in publicacoes" style="border: 1px solid; margin-bottom: 10px;">
+                <div>
+                    {{ p.publicacao }}
+                    <hr>
+                    <input type="text">
+                </div>
+        
+            </li>
+        </ul>
+        <hr>
+        <ul>
+            <li v-for="p in publicacoes" style="border: 1px solid; margin-bottom: 10px">
+                {{ p.publicacao }}
+                <hr>
+                <input type="text">
+            </li>
+            <button @click="mistirarArray()">Misturar publicações</button>
+        </ul>
+        <hr>
+        <ul>
+            <h3>Com o elemento Key passando com o id</h3>
+            <li v-for="p in publicacoes" style="border: 1px solid; margin-bottom: 10px" :key="p.id">
+                {{ p.publicacao }}
+                <hr>
+                <input type="text">
+            </li>
+            <button @click="mistirarArray()">Misturar publicações</button>
+        </ul>
+
+
+    </div>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data:{
+                publicacoes: [
+                    {id:1, publicacao: 'Publicações 1'},
+                    {id:2, publicacao: 'Publicações 2'},
+                    {id:3, publicacao: 'Publicações 3'},
+                ]
+            },
+            methods:{
+                mistirarArray() {
+                    let misturado = []
+
+                    misturado[0] = this.publicacoes[2]
+                    misturado[1] = this.publicacoes[0]
+                    misturado[2] = this.publicacoes[1]
+
+                    this.publicacoes = misturado
+                }
+            }
+        });
+    </script>
+    
+</body>
+</html>
