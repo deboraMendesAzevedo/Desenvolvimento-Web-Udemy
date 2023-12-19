@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('cliente_id');
             $table->unsignedBigInteger('carro_id');
-            $table->dateTime('data_periodo_inicial');
+            $table->dateTime('data_inicio_periodo');
             $table->dateTime('data_final_previsto_periodo');
             $table->dateTime('data_final_realizado_periodo');
             $table->float('valor_diaria', 8,2);
@@ -23,12 +23,9 @@ return new class extends Migration
             $table->integer('km_final');
             $table->timestamps();
 
-
-            // foreing key
-
-            $table->foreing('cliente_id')->references('id')->on('clientes');
-            $table->foreing('carro_id')->references('id')->on('carros');
-
+            //foreign key (constraints)
+            $table->foreign('cliente_id')->references('id')->on('clientes');
+            $table->foreign('carro_id')->references('id')->on('carros');
         });
     }
 

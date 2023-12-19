@@ -19,9 +19,8 @@ return new class extends Migration
             $table->integer('km');
             $table->timestamps();
 
-            // foreing key
+            //foreign key (constraints)
             $table->foreign('modelo_id')->references('id')->on('modelos');
-
         });
     }
 

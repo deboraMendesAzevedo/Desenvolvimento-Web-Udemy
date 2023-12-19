@@ -11,6 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
+
         Schema::create('modelos', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('marca_id');
@@ -22,8 +23,8 @@ return new class extends Migration
             $table->boolean('abs');
             $table->timestamps();
 
-            //foreing key
-            $table->foreign('marca_id')->references('id')->on('marca');
+            //foreign key (constraints)
+            $table->foreign('marca_id')->references('id')->on('marcas');
         });
     }
 
